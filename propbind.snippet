@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Title>Bindable Property</Title>
+      <Author>Roya Pajoohesh Co.</Author>
+      <Description>
+      </Description>
+      <HelpUrl>
+      </HelpUrl>
+      <Shortcut>propbind</Shortcut>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal Editable="true">
+          <ID>PropertyName</ID>
+          <ToolTip>The property name</ToolTip>
+          <Default>PropertyName</Default>
+          <Function>
+          </Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>PropertyTypeName</ID>
+          <ToolTip>The property type</ToolTip>
+          <Default>PropertyType</Default>
+          <Function>
+          </Function>
+        </Literal>
+		<Literal Editable="true">
+          <ID>DeclaringType</ID>
+          <ToolTip>The control which is defining the bindable property</ToolTip>
+          <Default>DeclaringType</Default>
+          <Function>
+          </Function>
+        </Literal>
+      </Declarations>
+      <Code Language="csharp" Delimiter="$"><![CDATA[public static BindableProperty $PropertyName$Property = BindableProperty.Create(
+				nameof($PropertyName$),
+				typeof($PropertyTypeName$),
+				typeof($DeclaringType$),
+				propertyChanged: (bindable, oldValue, newValue) => {
+					var control = ($DeclaringType$)bindable;
+					// your code goes here!
+				});
+
+        public $PropertyTypeName$ $PropertyName$
+        {
+            get { return ($PropertyTypeName$) GetValue($PropertyName$Property); }
+            set { SetValue($PropertyName$Property, value); }
+        }
+		
+]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

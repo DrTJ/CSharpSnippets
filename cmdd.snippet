@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Title>Command</Title>
+      <Author>administrador</Author>
+      <Description>
+      </Description>
+      <HelpUrl>
+      </HelpUrl>
+      <Shortcut>cmdd</Shortcut>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal Editable="true">
+          <ID>localVariable</ID>
+          <ToolTip>Command local variable name</ToolTip>
+          <Default>commandFieldName</Default>
+          <Function>
+          </Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>propertyName</ID>
+          <ToolTip>Command property name</ToolTip>
+          <Default>commandPropertyName</Default>
+          <Function>
+          </Function>
+        </Literal>
+      </Declarations>
+      <Code Language="csharp" Delimiter="$"><![CDATA[
+		private ICommand $localVariable$;
+
+        public ICommand $propertyName$ => $localVariable$ = $localVariable$ ?? new Command(async () => {
+            CanExecuteCommand(false, $localVariable$);
+
+            // put your code here!
+
+            CanExecuteCommand(true, $localVariable$);
+        }, () => !IsCommandExecuting);		
+]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>
